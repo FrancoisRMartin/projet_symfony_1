@@ -3,9 +3,7 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-
-
-
+<div class="show">
 <h1>
 {% if editMode %}
     Modification d'un employé
@@ -14,12 +12,16 @@
 {% endif %}
 </h1>
 
-<a class="text-center h2" href="{{ path('accueil') }}">Retour table des employés</a>
-<br>
+<div class="form">
+
+{# <a class="text-center h2" href="{{ path('accueil') }}">Retour table des employés</a> #}
 <br>
 
-
-{{ form_start(formEmployes) }}
+{{ form_start(formEmployes, {
+    attr: {
+        novalidate : 'novalidate'
+    }
+}) }}
 
 {{ form_row(formEmployes.prenom, {
     label: "Prenom",
@@ -41,6 +43,15 @@
         placeholder: "Saisissez le téléphone"
     }
 }) }}
+
+{# {{ form_label(formEmployes.telephone, 'Téléphone')}}
+
+{{ form_widget(formEmployes.telephone, {
+    attr: {
+        placeholder: "Téléphone de l'employé"
+        }
+}) }} #}
+{# <span class="aide">{{ formEmployes.telephone.vars.help  }}</span> #}
 
 
 {{ form_row(formEmployes.email, {
@@ -76,14 +87,30 @@
 }) }}
 
 
-<button type="submit" class="btn btn-primary mt-2">
+{# <button type="submit" class="btn btn-primary mt-2">
 {% if editMode %}
     Modifier ce compte
 {% else %}
     Créer ce compte
 {% endif %}
+</button> #}
+
+
+
+</div>
+
+<br>
+<button type="submit" class="button">
+			{% if editMode %}
+				Modifier
+			{% else %}
+				Ajouter
+			{% endif %}
 </button>
 
 {{ form_end(formEmployes) }}
 
+<a href="{{ path('accueil') }}" class="button">Annuler</a><br><br>
+
+</div>
 {% endblock %}

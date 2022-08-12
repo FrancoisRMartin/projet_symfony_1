@@ -1,0 +1,43 @@
+.form {
+    background-color: lightgrey;
+    text-align: left;
+    margin: 0 300px;
+    padding: 0px 50px 20px 50px;
+}
+
+.show {
+    width: 90%;
+    text-align: center;
+}
+
+.form .aide {
+    color: green;
+    text-align: left;
+    padding: 0 0 0 0
+}
+
+.form .erreur {
+    color: red;
+    text-align: left;
+    padding: 0 0 0 0
+}
+
+.show .button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    border-radius: 12px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.show .button:hover {
+    background-color: rgb(7, 173, 15);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+

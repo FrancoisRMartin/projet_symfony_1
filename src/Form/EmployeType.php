@@ -28,11 +28,8 @@ class EmployeType extends AbstractType
             ->add('datedenaissance', DateType::class, array(
                 'widget' => 'choice',
                 'years' => range(date('Y')-100, date('Y')-14),
-                'format' => 'dd-MMMM-yyyy',
-                'placeholder' => [
-                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
-                ],
-
+                'format' => 'dd MMMM yyyy', 
+                'help' => 'La date doit être au format jj/mm/aaaa'
             ))
         ;
     }
