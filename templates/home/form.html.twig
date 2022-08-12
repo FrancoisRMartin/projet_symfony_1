@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+
+
+
+<h1>
+{% if editMode %}
+    Modification d'un employé
+{% else %}
+    Ajout d'un employé
+{% endif %}
+</h1>
+
+<a class="text-center h2" href="{{ path('accueil') }}">Retour table des employés</a>
+<br>
+<br>
+
+
+{{ form_start(formEmployes) }}
+
+{{ form_row(formEmployes.prenom, {
+    label: "Prenom",
+    attr: {
+        placeholder: "Saisissez le prenom"
+    }
+}) }}
+
+{{ form_row(formEmployes.nom, {
+    label: "Nom",
+    attr: {
+        placeholder: "Saisissez le nom"
+    }
+}) }}
+
+{{ form_row(formEmployes.telephone, {
+    label: "Téléphone",
+    attr: {
+        placeholder: "Saisissez le téléphone"
+    }
+}) }}
+
+{{ form_row(formEmployes.email, {
+    label: "Email",
+    attr: {
+        placeholder: "Saisissez l'email"
+    }
+}) }}
+
+{{ form_row(formEmployes.adresse, {
+    label: "Adresse",
+    attr: {
+        placeholder: "Saisissez l'adresse"
+    }
+}) }}
+
+{{ form_row(formEmployes.poste, {
+    label: "Poste",
+    attr: {
+        placeholder: "Saisissez le poste"
+    }
+}) }}
+
+{{ form_row(formEmployes.salaire, {
+    label: "Salaire",
+    attr: {
+        placeholder: "Saisissez le salaire"
+    }
+}) }}
+
+{{ form_row(formEmployes.datedenaissance, {
+    label: "Date de naissance",
+}) }}
+
+
+<button type="submit" class="btn btn-primary mt-2">
+{% if editMode %}
+    Modifier ce compte
+{% else %}
+    Créer ce compte
+{% endif %}
+</button>
+
+{{ form_end(formEmployes) }}
+
+{% endblock %}
