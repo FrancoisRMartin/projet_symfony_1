@@ -16,11 +16,15 @@ class EmployeType extends AbstractType
         $builder
             ->add('prenom')
             ->add('nom')
-            ->add('telephone')
+            ->add('telephone', null , [
+                'help' => 'Les chiffres peuvent être séparés par un espace, un point ou un tiret'
+            ])
             ->add('email')
             ->add('adresse')
             ->add('poste')
-            ->add('salaire')
+            ->add('salaire', null , [
+                'help' => 'Le salaire doit être positif ou nul'
+            ])
             ->add('datedenaissance', DateType::class, array(
                 'widget' => 'choice',
                 'years' => range(date('Y')-100, date('Y')-14),
