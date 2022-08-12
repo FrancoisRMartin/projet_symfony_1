@@ -23,69 +23,102 @@
     }
 }) }}
 
-{{ form_row(formEmployes.prenom, {
-    label: "Prenom",
+<div class="label">
+{{ form_label(formEmployes.prenom, 'Prenom')}}
+</div>
+<div class="champ">
+{{ form_widget(formEmployes.prenom, {
     attr: {
         placeholder: "Saisissez le prenom"
-    }
+        }
 }) }}
+</div>
 
-{{ form_row(formEmployes.nom, {
-    label: "Nom",
+<div class="label">
+{{ form_label(formEmployes.nom, 'Nom')}}
+</div>
+<div class="champ">
+{{ form_widget(formEmployes.nom, {
     attr: {
         placeholder: "Saisissez le nom"
-    }
+        }
 }) }}
+</div>
 
-{{ form_row(formEmployes.telephone, {
+{# {{ form_row(formEmployes.telephone, {
     label: "Téléphone",
     attr: {
         placeholder: "Saisissez le téléphone"
     }
-}) }}
+}) }} #}
 
-{# {{ form_label(formEmployes.telephone, 'Téléphone')}}
-
+<div class="label">
+{{ form_label(formEmployes.telephone, 'Téléphone')}}
+{# <div class="error">
+{{ form_errors(formEmployes.telephone)}}
+</div> #}
+</div>
+<div class="champ">
 {{ form_widget(formEmployes.telephone, {
     attr: {
         placeholder: "Téléphone de l'employé"
         }
-}) }} #}
-{# <span class="aide">{{ formEmployes.telephone.vars.help  }}</span> #}
+}) }}
+</div>
+
+<div class="help">{{ formEmployes.telephone.vars.help  }}</div>
 
 
-{{ form_row(formEmployes.email, {
-    label: "Email",
+<div class="label">
+{{ form_label(formEmployes.email, 'Email')}}
+</div>
+<div class="champ">
+{{ form_widget(formEmployes.email, {
     attr: {
         placeholder: "Saisissez l'email"
-    }
+        }
 }) }}
+</div>
 
-{{ form_row(formEmployes.adresse, {
-    label: "Adresse",
+<div class="label">
+{{ form_label(formEmployes.adresse, 'Adresse')}}
+</div>
+<div class="champ">
+{{ form_widget(formEmployes.adresse, {
     attr: {
         placeholder: "Saisissez l'adresse"
-    }
+        }
 }) }}
+</div>
 
-{{ form_row(formEmployes.poste, {
-    label: "Poste",
+<div class="label">
+{{ form_label(formEmployes.poste, 'Poste')}}
+</div>
+<div class="champ">
+{{ form_widget(formEmployes.poste, {
     attr: {
         placeholder: "Saisissez le poste"
-    }
+        }
 }) }}
+</div>
 
-{{ form_row(formEmployes.salaire, {
-    label: "Salaire (€)",
+<div class="label">
+{{ form_label(formEmployes.salaire, 'Salaire (€)')}}
+</div>
+<div class="champ">
+{{ form_widget(formEmployes.salaire, {
     attr: {
         placeholder: "Saisissez le salaire"
-    }
+        }
 }) }}
+</div>
+<div class="help">{{ formEmployes.salaire.vars.help  }}</div>
 
+<div class="date">
 {{ form_row(formEmployes.datedenaissance, {
     label: "Date de naissance",
 }) }}
-
+</div>
 
 {# <button type="submit" class="btn btn-primary mt-2">
 {% if editMode %}

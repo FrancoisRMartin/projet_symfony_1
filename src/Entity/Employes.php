@@ -34,7 +34,7 @@ class Employes
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\Regex("/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/", message="Format incorrect, les chiffres peuvent être séparés par un espace, un point ou un tiret")
+     * @Assert\Regex("/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/", message="Format incorrect")
      * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $telephone;
@@ -62,9 +62,10 @@ class Employes
     private $poste;
 
     /**
-     * @ORM\Column(type="float")
-     * @Assert\Type(type="float", message="{{ value }} n'est pas un nombre.")
+     * @ORM\Column(type="integer")
+     * @Assert\Type(type="integer", message="{{ value }} n'est pas un nombre.")
      * @Assert\PositiveOrZero(message="Le salaire doit être positif ou égale à 0")
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide ou ne comporter que des chiffres !")
      */
     private $salaire;
 
@@ -150,12 +151,12 @@ class Employes
         return $this;
     }
 
-    public function getSalaire(): ?float
+    public function getSalaire(): ?int
     {
         return $this->salaire;
     }
 
-    public function setSalaire(float $salaire): self
+    public function setSalaire(int $salaire): self
     {
         $this->salaire = $salaire;
 
