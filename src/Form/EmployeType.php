@@ -21,11 +21,15 @@ class EmployeType extends AbstractType
             ->add('adresse')
             ->add('poste')
             ->add('salaire')
-            ->add('datedenaissance', BirthdayType::class, [
+            ->add('datedenaissance', DateType::class, array(
+                'widget' => 'choice',
+                'years' => range(date('Y')-100, date('Y')-14),
+                'format' => 'dd-MMMM-yyyy',
                 'placeholder' => [
-                    'year' => 'Year', 'month' => 'Month', 'day' => 'Day',
+                    'year' => 'Année', 'month' => 'Mois', 'day' => 'Jour',
                 ],
-            ])
+
+            ))
         ;
     }
 

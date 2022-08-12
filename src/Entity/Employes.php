@@ -2,8 +2,9 @@
 
 namespace App\Entity;
 
-use App\Repository\EmployesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\EmployesRepository;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=EmployesRepository::class)
@@ -19,36 +20,51 @@ class Employes
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères!" )
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=2, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères !" )
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $nom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^(?:(?:\+|00)33|0)\s*[1-9](?:[\s.-]*\d{2}){4}$/", message="Format incorrect, les chiffres peuvent être séparés par un espace, un point ou un tiret")
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $telephone;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=5, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères !" )
+     * @Assert\Email(message = "L'adresse e-mail: {{ value }} n'est pas valide !")
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $email;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
+     * @Assert\Length(min=10, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères !" )
      */
     private $adresse;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Length(min=3, max=255, minMessage="Il faut {{ limit }} caractères minimum !", maxMessage="Il faut au maximum {{ limit }} caractères !" )
+     * @Assert\NotBlank(message="Ce champ ne doit pas être vide !")
      */
     private $poste;
 
     /**
      * @ORM\Column(type="float")
+     * @Assert\Type(type="float", message="{{ value }} n'est pas un nombre.")
+     * @Assert\PositiveOrZero(message="Le salaire doit être positif ou égale à 0")
      */
     private $salaire;
 
